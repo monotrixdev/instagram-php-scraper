@@ -20,10 +20,11 @@ No external libraries required.
 - Reel support
 - Carousel media support
 - Clean REST-style JSON responses
-- Cookie-based session handling
+- Cookie-based authenticated session handling
 - Mobile browser simulation
 - Structured error handling
 - Scalable folder architecture
+- Lightweight and dependency-free
 
 ---
 
@@ -39,7 +40,7 @@ instagram-php-scraper/
 │   └── ig.php             # Core scraping class
 │
 ├── storage/
-│   └── cookies.txt        # Session cookies
+│   └── cookies.txt        # Required session cookies
 │
 ├── .gitignore
 └── README.md
@@ -54,12 +55,34 @@ Clean separation between routing and business logic.
 - PHP 8.0+
 - cURL enabled
 - OpenSSL enabled
+- Valid Instagram session cookies
 
 Check cURL installation:
 
 ```bash
 php -m | grep curl
 ```
+
+---
+
+# 🔐 Session & Authentication (Important)
+
+This scraper requires a valid logged-in Instagram browser session.
+
+You must export your Instagram cookies from a logged-in browser and place them inside:
+
+```
+storage/cookies.txt
+```
+
+Without valid cookies:
+
+- Instagram may return login HTML instead of JSON
+- Requests may fail with 403 errors
+- Media extraction may break
+- Empty or invalid responses may be returned
+
+Cookies may expire. Refresh them if requests start failing.
 
 ---
 
@@ -70,6 +93,13 @@ Clone the repository:
 ```bash
 git clone https://github.com/monotrixdev/instagram-php-scraper.git
 cd instagram-php-scraper
+```
+
+Create storage folder if not exists:
+
+```bash
+mkdir storage
+touch storage/cookies.txt
 ```
 
 Start local server:
@@ -174,41 +204,49 @@ http://localhost:8004/?type=profile&url=https://www.instagram.com/username/
 
 ---
 
-# 🧩 Simple PHP Usage
+# 🧩 Simple PHP Usage (Cookies Required)
 
-You can use the scraper class directly inside any PHP file.
-
-## Include the class
+Always initialize with cookie path:
 
 ```php
 require 'src/ig.php';
 
-$ig = new ig();
+$ig = new ig(__DIR__ . '/storage/cookies.txt');
 ```
+
+---
 
 ## Get Profile
 
 ```php
 require 'src/ig.php';
 
-$ig = new ig();
+$ig = new ig(__DIR__ . '/storage/cookies.txt');
 $profile = $ig->getProfile("https://www.instagram.com/username/");
 
 print_r($profile);
 ```
+
+---
 
 ## Get Post
 
 ```php
 require 'src/ig.php';
 
-$ig = new ig();
+$ig = new ig(__DIR__ . '/storage/cookies.txt');
 $post = $ig->getPost("https://www.instagram.com/reel/DPS9Vp9k6Hj/");
 
 print_r($post);
 ```
 
-Simple and clean.
+Do not use:
+
+```php
+$ig = new ig();
+```
+
+The scraper depends on authenticated session handling.
 
 ---
 
@@ -240,8 +278,32 @@ Standard HTTP status codes are used.
 
 ---
 
+# ⚠️ Common Issues
+
+• Empty JSON response  
+→ Usually caused by expired or invalid cookies.
+
+• Redirect to login page  
+→ Session not valid.
+
+• 403 Forbidden  
+→ IP blocked or cookies expired.
+
+• Slow response  
+→ Consider caching or proxy rotation.
+
+Always verify:
+
+- cookies.txt exists
+- File permissions allow read/write
+- cURL is enabled
+- Session is still active
+
+---
+
 # 🧠 How It Works
 
+- Uses authenticated Instagram session cookies
 - Sends mobile browser headers
 - Extracts embedded JSON from Instagram pages
 - Parses GraphQL response data
@@ -251,12 +313,14 @@ Standard HTTP status codes are used.
 
 ---
 
-# 🛡 Disclaimer
+# 🚀 Why Use This API?
 
-This project is intended for educational and research purposes.
-
-Instagram may update internal APIs at any time.  
-Users are responsible for complying with platform terms and policies.
+- No third-party SDK dependencies
+- Pure PHP implementation
+- Lightweight and fast
+- Easy integration into existing backend systems
+- Structured JSON for frontend apps
+- Production-oriented architecture
 
 ---
 
@@ -273,6 +337,15 @@ For scaling and deployment:
 
 ---
 
+# 🛡 Disclaimer
+
+This project is intended for educational and research purposes.
+
+Instagram may update internal APIs at any time.  
+Users are responsible for complying with platform terms and policies.
+
+---
+
 # 📜 License
 
 MIT License
@@ -280,17 +353,13 @@ MIT License
 ---
 
 <div align="center">
-
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:111111,100:1f1f1f&height=120&section=footer&text=Instagram%20PHP%20Scraper&fontColor=ffffff&fontSize=24" />
-
 </div>
 
 ---
 
 <div align="center">
-
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e1e1e,100:2c2c2c&height=160&section=footer&text=Sabbir%20Ahmed&fontSize=32&fontColor=ffffff&animation=fadeIn" />
-
 </div>
 
 ---
