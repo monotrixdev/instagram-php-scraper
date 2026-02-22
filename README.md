@@ -141,34 +141,39 @@ http://localhost:8004/?type=post&url=https://www.instagram.com/reel/DPS9Vp9k6Hj/
 {
   "status": "success",
   "code": 200,
+  "message": "Post data retrieved successfully.",
   "data": {
-    "id": "3833744663300430852",
-    "shortcode": "DU0MnWPklwE",
-    "media_type": 8,
-    "type": "carousel",
-    "title": null,
-    "caption": "🎨🎭🧴🛁💆‍♀️🧖🏻‍♀️#dazzlebeautysalon💋❤",
-    "likes": 203,
-    "comment_count": 4,
-    "visibility": {
-      "is_private": false,
-      "is_embeds_disabled": false,
-      "is_unpublished": false
+    "post": {
+      "id": "1111111111111111111",
+      "shortcode": "EXAMPLE123",
+      "media_type": 8,
+      "type": "carousel",
+      "title": null,
+      "caption": "Sample caption for documentation purposes.",
+      "created_at": 1700000000,
+      "likes_count": 120,
+      "comments_count": 15,
+      "visibility": {
+        "is_private": false,
+        "is_embeds_disabled": false,
+        "is_unpublished": false
+      }
     },
-    "profile": {
-      "id": "43739470526",
-      "username": "lifeofrioo_",
-      "full_name": "Riya Moni",
-      "avatar_hd": "https://instagram-cdn-avatar.jpg",
+    "author": {
+      "id": "2222222222222222222",
+      "username": "example_user",
+      "full_name": "Example User",
+      "avatar_url": "https://example.com/avatar.jpg",
       "is_verified": false
     },
-    "photos_hd": [
-      "https://instagram-cdn-photo-1.jpg",
-      "https://instagram-cdn-photo-2.jpg",
-      "https://instagram-cdn-photo-3.jpg",
-      "https://instagram-cdn-photo-4.jpg"
-    ],
-    "videos_hd": []
+    "media": {
+      "images": [
+        "https://example.com/photo1.jpg",
+        "https://example.com/photo2.jpg",
+        "https://example.com/photo3.jpg"
+      ],
+      "videos": []
+    }
   }
 }
 ```
@@ -189,35 +194,38 @@ http://localhost:8004/?type=profile&url=https://www.instagram.com/username/
 
 ```json
 {
-{
   "status": "success",
   "code": 200,
+  "message": "User profile retrieved successfully.",
   "data": {
     "user": {
-      "id": "2093505963",
-      "username": "arydigital.tv",
-      "full_name": "ARY Digital",
-      "biography": "Download ARY Plus below 👇",
-      "profile_pic": "https://example.com/profile.jpg",
-      "verified": true,
-      "followers": 6051975,
-      "following": 30,
-      "posts": 93639
+      "id": "1234567890",
+      "username": "example_user",
+      "full_name": "Example User",
+      "biography": "This is a sample biography for documentation purposes.",
+      "profile_picture_url": "https://example.com/profile.jpg",
+      "is_verified": false,
+      "followers_count": 10000,
+      "following_count": 150,
+      "posts_count": 25
     },
-    "images": [
+    "posts": [
       {
-        "id": "3754787912022772474_2093505963",
-        "code": "DQbr7ZXDEr6",
-        "caption": "Love so pure… yet so unpredictable.",
-        "created_at": 1761846351,
-        "like_count": 393066,
-        "comment_count": 5161,
-        "images": [
-          "https://example.com/image1.jpg"
-        ],
-        "videos": [
-          "https://example.com/video1.mp4"
-        ]
+        "id": "9876543210_1234567890",
+        "shortcode": "ABC123XYZ",
+        "caption": "Sample caption for documentation.",
+        "created_at": 1700000000,
+        "likes_count": 500,
+        "comments_count": 25,
+        "media": {
+          "images": [
+            "https://example.com/image1.jpg",
+            "https://example.com/image2.jpg"
+          ],
+          "videos": [
+            "https://example.com/video1.mp4"
+          ]
+        }
       }
     ]
   }

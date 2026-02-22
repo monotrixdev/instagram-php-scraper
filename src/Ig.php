@@ -287,7 +287,7 @@ $output = [
 return $output;
 }
   public function getProfile(string $url) {
-    $results = ['status' => false];
+    $results = ['status' => 'error'];
     $username = $this->getUsername($url);
     $headers = $this->headers($username);
     $query = $this->post($username);
@@ -298,17 +298,19 @@ return $output;
       $profileUser = $this->profileData($userId);
       $results['status'] = "success";
       $results['code'] = 200;
+      $results['message'] = 'User profile retrieved successfully.';
   #    $results['user'] = $profileUser['user'] ?? null;
   #    $results['images'] = $images_results['posts'] ?? [];
       
       
       $results['data'] = [
         'user' => $profileUser['user'] ?? null,
-        'images' => $images_results['posts'] ?? [],
+        'posts' => $images_results['posts'] ?? [],
       ];
       
       return $results;
     } else {
+      $results['code'] = 404;
       $results['message'] = 'User not found';
     }
     return $results;
@@ -403,15 +405,18 @@ return $out;
   public function getPost(string $url) {
     $res = $this->scrapPostData($url);
     if($res['id'] || !empty($res)) {
-      return [
-          "status" => "success",
-          "code" => 200,
-          "data" => $res
-        ] ?? null;
+    return [
+        'status'  => 'success',
+        'code'    => 200,
+        'message' => 'Media retrieved successfully.',
+        'data'    => $res
+    ];
     } else {
       return [
-        'error' => 'no result found'
-        ];
+    'status'  => 'error',
+    'code'    => 404,
+    'message' => 'Resource not found.'
+    ];
     }
   }
 }
