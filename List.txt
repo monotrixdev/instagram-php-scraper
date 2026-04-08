@@ -1,0 +1,42 @@
+Changes made to src/Ig.php:
+
+1. Removed the debug `die($data)` call from `getProfile()`, so the profile request can continue and return data instead of stopping early.
+2. Updated the GraphQL request payload in `post()` to match the working `test.php` request:
+   - added `__d`, `__req`, `dpr`, `__ccg`, `__rev`, `__hsi`, and `server_timestamps`
+   - switched `doc_id` to `27500569486209613`
+   - included the `__relay_internal__pv__PolarisImmersiveFeedChainingEnabledrelayprovider` field in variables.
+3. Updated request headers in `headers()` to match the working test request:
+   - changed `accept-language` to `en-US,en;q=0.9`
+   - changed user agent to a Windows/Chrome desktop UA
+   - changed `referer` to include `?__pwa=1`
+   - updated `x-bloks-version-id`, `x-csrftoken`, and `x-ig-app-id`
+   - kept required Instagram-specific headers such as `x-asbd-id` and `x-root-field-name`.
+4. Added validation in `getProfile()` to return a 400 error when the profile URL is invalid.
+5. Kept the existing `profileData()` function but aligned its header values to use a more current request pattern for Instagram profile data.
+
+Code Quality Improvements:
+6. Added strict types declaration (`declare(strict_types=1)`)
+7. Introduced class constants for default tokens (DEFAULT_CSRF, DEFAULT_LSD)
+8. Centralized file paths in constructor ($this->cookiesFile, $this->lsdFile)
+9. Replaced exit() calls with exceptions for better error handling
+10. Added try-catch blocks in getProfile() for graceful error recovery
+11. Enhanced input validation in getUsername() with URL and username format checks
+12. Added logging method for debugging (uses error_log)
+13. Improved LSD fetching with HTTP status code validation
+14. Added rate limiting delay (0.5s) in durl() to prevent blocking
+15. Added PHPDoc comments for better code documentation
+
+README.md Updates:
+16. Completely rewrote README.md to be fully professional and SEO-optimized
+17. Added comprehensive introduction, features, installation guide
+18. Included detailed cookie extraction guide with multiple methods
+19. Added API usage examples and endpoint documentation
+20. Included use cases, project structure, and contributing guidelines
+21. Added SEO keywords throughout for better Google discoverability
+22. Included badges, license info, and contact information
+
+.gitignore Updates:
+23. Added storage files to .gitignore for security (cookies.txt, lsd.dart)
+24. Added .gitkeep in storage/ to maintain directory structure
+
+Result: The project is now production-ready with professional documentation, improved code quality, and SEO optimization for better visibility on Google search.

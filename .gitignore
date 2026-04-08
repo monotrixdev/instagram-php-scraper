@@ -17,3 +17,8 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+
+# Sensitive storage files
+storage/cookies.txt
+storage/lsd.dart
+storage/*.txt
