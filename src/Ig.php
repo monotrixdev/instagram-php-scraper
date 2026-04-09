@@ -148,7 +148,7 @@ class Ig {
     ]);
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+  //  curl_close($ch);
     if ($httpCode !== 200 || !$response) {
       $this->log("Failed to fetch LSD, HTTP code: $httpCode");
       return null;
@@ -185,11 +185,11 @@ class Ig {
     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($res === false) {
         $error = curl_error($ch);
-        curl_close($ch);
+     //   curl_close($ch);
         $this->log("Curl error: $error");
         throw new Exception("Request failed: $error");
     }
-    curl_close($ch);
+   // curl_close($ch);
     return $res;
 }
   private function turl(string $url, array $headers, bool $useCookies = false)

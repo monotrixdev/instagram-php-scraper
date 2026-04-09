@@ -5,11 +5,11 @@
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Version](https://img.shields.io/badge/version-1.0.0-orange)
 
-**Instagram Scraper PHP** | **Instagram API PHP** | **Extract Instagram Profiles** | **Instagram Data Scraper** | **PHP Instagram Crawler**
+**Instagram Scraper PHP** | **Instagram API PHP** | **Extract Instagram Profiles** | **Instagram Data Scraper** | **PHP Instagram Crawler** | **Instagram Profile Extractor** | **Instagram Posts Scraper** | **Instagram Reels Downloader** | **PHP Web Scraper** | **Instagram Automation Tool**
 
 A professional, production-ready Instagram scraping API built with pure PHP and cURL. Extract Instagram user profiles, posts, reels, HD media URLs, and engagement metrics in clean JSON format. Perfect for developers building Instagram data extraction tools, social media analytics, or content aggregation platforms.
 
-**Keywords:** Instagram scraper, PHP Instagram API, Instagram data extraction, Instagram profile scraper, Instagram posts scraper, Instagram reels scraper, PHP cURL scraper, Instagram automation, social media scraping.
+**Keywords:** Instagram scraper, PHP Instagram API, Instagram data extraction, Instagram profile scraper, Instagram posts scraper, Instagram reels scraper, PHP cURL scraper, Instagram automation, social media scraping, Instagram crawler, Instagram downloader, Instagram media scraper, PHP scraper library, Instagram API alternative, web scraping PHP.
 
 ---
 
@@ -305,6 +305,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ### SEO Keywords & Discovery
 **Search Terms:** instagram scraper php, php instagram api, instagram data extraction, instagram profile scraper, instagram posts scraper, instagram reels scraper, php curl scraper, instagram automation, social media scraping, instagram crawler, extract instagram data, instagram api alternative, php web scraper, instagram downloader, instagram media scraper.
+
+**GitHub Topics/Tags:** instagram-scraper, php-scraper, instagram-api, web-scraping, php8, curl, instagram-data, social-media, automation, data-extraction, instagram-profile, instagram-posts, instagram-reels, php-library, scraper-api
+
+**GitHub Repository Description:** Professional Instagram PHP Scraper API - Extract Instagram profiles, posts, and reels with pure PHP. No dependencies, authenticated scraping, clean JSON responses. Perfect for developers and data analysts.
 
 **Author:** Sabbir Ahmed - Instagram Scraper Developer
 **Project:** instagram-php-scraper - Professional Instagram Data Extraction Tool
